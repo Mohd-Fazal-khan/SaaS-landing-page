@@ -99,7 +99,7 @@ landing-page/
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/landing-page.git
+   git clone https://github.com/Mohd-Fazal-khan/SaaS-landing-page.git
    cd landing-page
    ```
 
