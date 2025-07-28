@@ -139,7 +139,7 @@ landing-page/
 
 ---
 ## AI Usage Report
-link- https://drive.google.com/file/d/1cCbW9mZpZNgfn1oYbphxH8TW83vHTJoX/view?usp=sharing
+- link- https://drive.google.com/file/d/1cCbW9mZpZNgfn1oYbphxH8TW83vHTJoX/view?usp=sharing
 ---
 
 
