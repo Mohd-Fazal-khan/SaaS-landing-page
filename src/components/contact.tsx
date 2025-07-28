@@ -75,7 +75,7 @@ export default function Contact() {
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Touch</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your marketing? Contact us today and let's discuss how ADmyBRAND AI Suite can help your
+            Ready to transform your marketing? Contact us today and let&rsquo;s discuss how ADmyBRAND AI Suite can help your
             business grow.
           </p>
         </div>
