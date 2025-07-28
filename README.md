@@ -4,7 +4,7 @@ A modern, visually engaging landing page built with [Next.js](https://nextjs.org
 
 ## Live Demo
 
-Visit the live site: [https://your-live-url.com](https://saa-s-landing-page-smoky.vercel.app/)
+Visit the live site: [https://sass-landing-page.com](https://saa-s-landing-page-smoky.vercel.app/)
 
 ---
 
