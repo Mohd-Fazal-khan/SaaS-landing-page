@@ -1,70 +1,72 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
-  const [errors, setErrors] = useState<{ [key: string]: string }>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
-    const newErrors: { [key: string]: string } = {}
+    const newErrors: { [key: string]: string } = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required"
+      newErrors.name = "Name is required";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
+      newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email is invalid"
+      newErrors.email = "Email is invalid";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
+      newErrors.message = "Message is required";
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!validateForm()) return
+    if (!validateForm()) return;
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // Reset form
-    setFormData({ name: "", email: "", message: "" })
-    setIsSubmitting(false)
+    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(false);
 
     // Show success message (you can implement this with a toast or modal)
-    alert("Thank you for your message! We'll get back to you soon.")
-  }
+    alert("Thank you for your message! We'll get back to you soon.");
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }))
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
-  }
+  };
 
   return (
     <section className="py-24 bg-white/50 backdrop-blur-sm">
@@ -72,10 +74,13 @@ export default function Contact() {
         <div className="text-center mb-16" data-animation="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Get in
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Touch</span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              {" "}
+              Touch
+            </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your marketing? Contact us today and let&rsquo;s discuss how ADmyBRAND AI Suite can help your
+            Ready to transform your marketing? Contact us today and let&apos;s discuss how ADmyBRAND AI Suite can help your
             business grow.
           </p>
         </div>
@@ -84,7 +89,9 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-8" data-animation="fade-right">
             <div className="bg-white/60 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Contact Information
+              </h3>
 
               <div className="space-y-6">
                 <div className="flex items-center">
@@ -127,7 +134,9 @@ export default function Contact() {
           {/* Contact Form */}
           <div data-animation="fade-left">
             <div className="bg-white/60 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Send us a Message
+              </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -138,10 +147,14 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-xl border-2 bg-white/50 backdrop-blur-sm transition-all duration-200 ${
-                      errors.name ? "border-red-500" : "border-gray-200 focus:border-blue-500"
+                      errors.name
+                        ? "border-red-500"
+                        : "border-gray-200 focus:border-blue-500"
                     }`}
                   />
-                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  )}
                 </div>
 
                 <div>
@@ -152,10 +165,14 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-xl border-2 bg-white/50 backdrop-blur-sm transition-all duration-200 ${
-                      errors.email ? "border-red-500" : "border-gray-200 focus:border-blue-500"
+                      errors.email
+                        ? "border-red-500"
+                        : "border-gray-200 focus:border-blue-500"
                     }`}
                   />
-                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -166,10 +183,16 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-xl border-2 bg-white/50 backdrop-blur-sm transition-all duration-200 resize-none ${
-                      errors.message ? "border-red-500" : "border-gray-200 focus:border-blue-500"
+                      errors.message
+                        ? "border-red-500"
+                        : "border-gray-200 focus:border-blue-500"
                     }`}
                   />
-                  {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
 
                 <Button
@@ -195,5 +218,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
