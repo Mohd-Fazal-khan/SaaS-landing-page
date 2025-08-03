@@ -151,7 +151,3 @@ landing-page/
 - [Vercel Deployment](https://vercel.com/docs)
 
 ---
-
-## License
-
-This project is licensed under
